@@ -13,36 +13,79 @@ What do we need:
 
 var questions = [
     {
-        title: "one",
-        choices: ["strings","alerts"],
-        answer: "alerts"
+        title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        choices: [
+            'posible solution',
+            'posible solution',
+            'posible solution',
+            'posible solution'
+        ],
+        answer: 'to be determined'
     },
     {
-        title: "two",
-        choices: ["quotes","curly brackets"],
-        answer:"parentheses"
+        title: 'Question 2',
+        choices: [
+            'posible solution',
+            'posible solution',
+            'posible solution',
+            'posible solution'
+        ],
+        answer: 'to be determined'
     },
     {
-        title: "three",
-        choices: ["quotes","curly brackets"],
-        answer:"parentheses"
+        title: 'Question 3',
+        choices: [
+            'posible solution',
+            'posible solution',
+            'posible solution',
+            'posible solution'
+        ],
+        answer: 'to be determined'
     },
     {
-        title: "four",
-        choices: ["quotes","curly brackets"],
-        answer:"parentheses"
+        title: 'Question 4',
+        choices: [
+            'posible solution',
+            'posible solution',
+            'posible solution',
+            'posible solution'
+        ],
+        answer: 'to be determined'
     },
 ]
 
-var questionTag = document.getElementById('question');
+// handle start page
+var startPage = document.getElementById('start-page');
+var startButton = document.getElementById('start-button');
 
-questionTag.innerText = questions[0].title;
+startButton.addEventListener('click', function () {
+    // hide start page
+    startPage.style.display = 'none';
 
-for (var i=0; i<questions.length; i++) 
-{
-    questionTag.innerText = questions[i].title;
+    // show questions
+    handleQuestion();
+})
 
 
-    for (var c= 0; c < questions[i].choices.length; c++);
-    
+// handle question page
+var questionPage = document.getElementById('question-page');
+var questionTitle = document.getElementById('question-title');
+var questionsContainer = document.getElementById('questions-container');
+
+function handleQuestion() {
+    questionPage.style.display = 'block';
+
+    questionTitle.innerText = questions[0].title;
+
+    var choices = ['posible solution', 'posible solution', 'posible solution', 'posible solution'];
+
+    choices.forEach(generateListItem);
+}
+
+function generateListItem(item, index) {
+    var li = document.createElement('li');
+    // index = index+1;
+    li.innerText = (index + 1) + '. ' + item;
+
+    questionsContainer.appendChild(li);
 }

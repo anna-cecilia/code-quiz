@@ -2,74 +2,58 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <!-- CSS -->
-    <link rel="style" href="Assets/style.css">
+    <!-- StyleSheet- CSS -->
+    <link rel="stylesheet" href="Assets/style.css">
 
-    <!-- Responsiveness -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>Code Quiz</title>
+    <title>
+        Coding Quiz
+    </title>
 
 </head>
 
 <body>
-    <h1>Code Quiz</h1>
+    <div class="app-container">
+        <!-- header section starts here -->
+        <div class="header">
+            <p id="view-highscores" class="pointer">View Highscores</p>
 
-    <header>
-        <a href="#" class="">View Highscores</a>
-        <p class="Timer">
-            Timer:
-            <span>0</span>
-        </p>
-    </header>
+            <p class="timer">Timer: <span>0</span></p>
+        </div>
+        <!-- header section ends here -->
 
-    <!-- <div class="jumbotron">
-        <h1 class="display-4">Coding Quiz Challenge</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Start Quiz</a>
-    </div> -->
 
-    <!-- <div id="questionsContainer" class="jumbotron">
-        <h2 id="question">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
-        <ol id="allAnswers">
-            <li id="singleAnswer">Lorem Ipsum.</li>
-            <li id="singleAnswer">Lorem Ipsum.</li>
-            <li id="singleAnswer">Lorem Ipsum.</li>
-            <li id="singleAnswer">Lorem Ipsum.</li>
-        </ol>
-    </div> -->
+        <!-- start section start here -->
+        <div id="start-page" class="center">
+            <h1>Welcome to the code quiz.</h1>
+            <p>
+                There are 5 questions in this quiz. You will have 75 seconds total to answer the questions. 
+            </p>
+            <p>
+                For each correct answer, you will receive one point. 
+                Try to answer as many questions as you can and view your
+                highscore at the end.
+            </p>
+            <button id="start-button" class="pointer btn">
+                Start Quiz
+            </button>
+        </div>
+        <!-- start section ends here -->
 
-    <div class="jumbotron">
-        <h1 id='title'>Coding Quiz Challenge</h1>
-        <p id='rules'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua.</p>
-        <p id='startButton'>Start Now</p>
-        ​
-        <h2 id='questionTitle'></h2>
-        <ol id='orderedResponses'></ol>
+
+        <!-- questions section start here -->
+        <div id="question-page" class="center">
+            <h1 id="question-title"></h1>
+            <ul id="questions-container"></ul>
+        </div>
+        <!-- questions section ends here -->
     </div>
 
 
-
-
-
-    <!-- Optional JavaScript -->
-    <script src="Assets/questions.js"></script>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
 </body>
 
 </html>

@@ -1,0 +1,29 @@
+.app-container {
+    margin-top: 75px;
+}
+
+.center {
+    text-align: center;
+}
+
+.pointer {
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    font-weight: 400;
+}
+
+.header {
+    margin-left: 30px;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    color:white;
+    background-color: palevioletred;
+}
+

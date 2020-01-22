@@ -9,7 +9,45 @@ What do we need:
 
 */
 
-
-import * as storedQuestions from '../Assets/questions';
-
-console.log(storedQuestions);
+var questions = [
+    {
+        title: 'What does CSS stand for?',
+        choices: [
+            'Class Style Settings',
+            'Class Style Sheet',
+            'Cascading Style Sheet',
+            'Cascading Style Settings'
+        ],
+        answer: 'Cascading Style Sheet'
+    },
+    {
+        title: 'Question 2',
+        choices: [
+            'posible solution',
+            'posible solution',
+            'posible solution',
+            'posible solution'
+        ],
+        answer: 'to be determined'
+    },
+    {
+        title: 'Question 3',
+        choices: [
+            'posible solution',
+            'posible solution',
+            'posible solution',
+            'posible solution'
+        ],
+        answer: 'to be determined'
+    },
+    {
+        title: 'Question 4',
+        choices: [
+            'posible solution',
+            'posible solution',
+            'posible solution',
+            'posible solution'
+        ],
+        answer: 'to be determined'
+    },
+]
