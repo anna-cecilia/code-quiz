@@ -51,3 +51,38 @@ var questions = [
         answer: 'to be determined'
     },
 ]
+
+// start page
+var startPage = document.getElementById('start-page');
+var startButton = document.getElementById('start-button');
+
+startButton.addEventListener('click', function () {
+    // hide start page
+    startPage.style.display = 'none';
+
+    // show questions
+    showQuestions();
+})
+
+// handle question page
+var questionPage = document.getElementById('question-page');
+var questionTitle = document.getElementById('question-title');
+var questionsContainer = document.getElementById('questions-container');
+
+function showQuestions() {
+    questionPage.style.display = 'block';
+
+    questionTitle.innerText = questions[0].title;
+
+    var choices = ['Class Style Settings', 'Class Style Sheet', 'posible solution', 'posible solution'];
+
+    choices.forEach(generateListItem);
+}
+
+function generateListItem(item, index) {
+    var li = document.createElement('li');
+    // index = index+1;
+    li.innerText = (index + 1) + '. ' + item;
+
+    questionsContainer.appendChild(li);
+}
