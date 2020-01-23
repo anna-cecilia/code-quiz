@@ -9,65 +9,141 @@ What do we need:
 
 */
 
+// select all elements
+
 var startPage = document.getElementById('start-page');
 var startButton = document.getElementById('start-button');
+
 var questionPage = document.getElementById('questionPage')
-var counter = document.getElementById("counter");
-
-var timer = document.getElementById("timer");
-
+var question = document.getElementById("question");
 var choiceA = document.getElementById("A");
-var choiceA = document.getElementById("B");
-var choiceA = document.getElementById("C");
-var choiceA = document.getElementById("D");
+var choiceB = document.getElementById("B");
+var choiceC = document.getElementById("C");
+var choiceD = document.getElementById("D");
 
+var counter = document.getElementById("counter");
+var timer = document.getElementById("timer");
 var progress = document.getElementById("progress");
-var scoreContainer = document.getElementById("score-container")
+var scoreContainer = document.getElementById("scoreContainer")
 
 
 var highscoresPage = document.getElementById('highscores-page');
 var viewHighscoresButton = document.getElementById('highscores-page');
 
-// var currentQuestion = 0;
-// var user = '';
+// create some variables
+
+var lastQuestion = questions.length-1;
+let runningQuestion = 0;
+let count = 0;
+var questionTime = 15; // 15s
+var guageWidth = 150; // 150px
+var guageUnit = guageWidth / questionTime;
+let TIMER;
+let score = 0;
+
 
 //start quiz
 
-startButton.addEventListener('click', function () {
+startButton.addEventListener("click", function startQuiz()
+{
     var startPage = document.getElementById('start-page');
+    //hide start page
+    startPage.style.display = "none";
 
-    // hide start page
-    startPage.style.display = 'none';
-
-    // show questions
+    //show questions
     startQuestions();
-})
 
-// question page
+    document.getElementById("question-page").style.display = "block";
+    
+    renderCounter();
+    TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
+});
 
-questions [0].question
-questions [0].choiceA
-questions [0].choiceB
-questions [0].choiceC
-questions [0].choiceD
-questions [0].correct
-
-let lastQuestionIndex = questions.length-1;
-let runningQuestionIndex = 0;
-
-function startQuestions() {
-    let q = questions[runningQuestionIndex];
-
-    question.innerHTML="<p>" + q.question + "<p>";
-
+function startQuestions(){
+    let q = questions[runningQuestion];
+    
+    question.innerHTML = "<p>"+ q.question +"</p>";
     choiceA.innerHTML = q.choiceA;
-    choiceA.innerHTML = q.choiceB;
-    choiceA.innerHTML = q.choiceC;
-    choiceA.innerHTML = q.choiceD;
+    choiceB.innerHTML = q.choiceB;
+    choiceC.innerHTML = q.choiceC;
+    choiceD.innerHTML = q.choiceD;
 }
 
-runningQuestionIndex = 0;
-startQuestions();
+// startButton.addEventListener('click', function () {
+//     var startPage = document.getElementById('start-page');
+
+//     // hide start page
+//     startPage.style.display = 'none';
+
+//     // show questions
+//     startQuestions();
+// })
+
+
+// counter
+
+function showCounter () {
+    if (count <= questionTime){
+        counter.innerHTML =count;
+        timer.style.width = count * guageUnit + "px";
+        count++
+    }
+    else {
+        count = 0;
+        answerIsWrong()
+        if (runningQuestion < lastQuestion){
+            runningQuestion++
+            startQuestions();
+        } 
+        else{
+            clearInterval(TIMER);
+            scoreRender()
+        }
+    }
+}
+
+//Check Answer
+
+function checkAnswer(answer){
+    if (answer == questions[runningQuestion].correct){
+        score++
+    }
+    else {
+        answerIsWrong();
+    }
+    count = 0;
+    if(runningQuestion < lastQuestion) {
+        runningQuestion++;
+        startQuestions();
+    }
+    else {
+        clearInterval(TIMER);
+        scoreRender();
+    }
+}
+
+// answer is right
+
+function answerIsRight () {
+
+}
+
+// answer is wrong 
+
+function answerIsWrong () {
+
+}
+
+
+scores
+
+// function score () {
+//     scoreDiv.style.display =" block";
+
+//     var scoreNumber = Math.round(100 * score/questions.length);
+
+//     scoreDiv.innerHTML += "<p>" + scoreNumber + "%<p>";
+// }
 
 
 
