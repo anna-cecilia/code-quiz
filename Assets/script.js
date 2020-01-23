@@ -11,11 +11,25 @@ What do we need:
 
 var startPage = document.getElementById('start-page');
 var startButton = document.getElementById('start-button');
+var questionPage = document.getElementById('questionPage')
+var counter = document.getElementById("counter");
+
+var timer = document.getElementById("timer");
+
+var choiceA = document.getElementById("A");
+var choiceA = document.getElementById("B");
+var choiceA = document.getElementById("C");
+var choiceA = document.getElementById("D");
+
+var progress = document.getElementById("progress");
+var scoreContainer = document.getElementById("score-container")
+
+
 var highscoresPage = document.getElementById('highscores-page');
 var viewHighscoresButton = document.getElementById('highscores-page');
 
-var currentQuestion = 0;
-var user = '';
+// var currentQuestion = 0;
+// var user = '';
 
 //start quiz
 
@@ -26,32 +40,57 @@ startButton.addEventListener('click', function () {
     startPage.style.display = 'none';
 
     // show questions
-    showQuestions();
+    startQuestions();
 })
 
 // question page
-var questionPage = document.getElementById('question-page');
-var questionTitle = document.getElementById('question-title');
-var questionsContainer = document.getElementById('choices');
 
-function showQuestions() {
-    var question = questions[currentQuestion];
-    questionPage.style.display = 'block';
+questions [0].question
+questions [0].choiceA
+questions [0].choiceB
+questions [0].choiceC
+questions [0].choiceD
+questions [0].correct
 
-    questionTitle.innerText = question.title; // sets title 
+let lastQuestionIndex = questions.length-1;
+let runningQuestionIndex = 0;
+
+function startQuestions() {
+    let q = questions[runningQuestionIndex];
+
+    question.innerHTML="<p>" + q.question + "<p>";
+
+    choiceA.innerHTML = q.choiceA;
+    choiceA.innerHTML = q.choiceB;
+    choiceA.innerHTML = q.choiceC;
+    choiceA.innerHTML = q.choiceD;
+}
+
+runningQuestionIndex = 0;
+startQuestions();
+
+
+
+
+
+// function showQuestions() {
+//     var question = questions[currentQuestion];
+//     questionPage.style.display = 'block';
+
+//     questionTitle.innerText = question.title; // sets title 
     
-    var choices = question.choices;
-    questionsContainer.innerHTML = '';
-    choices.forEach(generateListItem);
-}
+//     var choices = question.choices;
+//     questionsContainer.innerHTML = '';
+//     choices.forEach(generateListItem);
+// }
 
-function generateListItem(item, index) {
-    var li = document.createElement('li');
-    // index = index+1;
-    li.innerText = (index + 1) + '. ' + item;
+// function generateListItem(item, index) {
+//     var li = document.createElement('li');
+//     // index = index+1;
+//     li.innerText = (index + 1) + '. ' + item;
 
-    questionsContainer.appendChild(li);
-}
+//     questionsContainer.appendChild(li);
+// }
 
 // showQuestions() {
 //     question++

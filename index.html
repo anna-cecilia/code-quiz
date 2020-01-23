@@ -48,9 +48,19 @@
         <!-- questions section start here -->
 
 
-        <div id="question-page" class="center">
-            <h1 id="question-title"></h1>
-            <ul id="choices"></ul>
+        <div id="question-page" class="center" style="display: none;">
+            <div id="question"> <p>Question</p></div>
+            <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')"> A </div>
+                <div class="choice" id="B" onclick="checkAnswer('B')"> B </div>
+                <div class="choice" id="C" onclick="checkAnswer('C')"> C </div>
+                <div class="choice" id="D" onclick="checkAnswer('D')"> D </div>
+            </div>
+
+        <div id="score container"><p>50%</p></div>
+
+            <!-- <h1 id="question-title"></h1>
+            <ul id="choices"></ul> -->
         </div>
 
 
@@ -66,11 +76,6 @@
 
 
         <!-- questions section ends here -->
-
-
-        <footer>
-            <p id="progress">Question x of y</p>
-        </footer>
 
 
     </div>

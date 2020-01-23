@@ -13,44 +13,45 @@ What do we need:
 
 var questions = [
     {
-        title: 'What does CSS stand for?',
-        choices: [
-            'Class Style Settings',
-            'Class Style Sheet',
-            'Cascading Style Sheet',
-            'Cascading Style Settings'
-        ],
-        answer: 'Cascading Style Sheet'
+        question: 'What does CSS stand for?',
+        choiceA: "Class Style Settings",
+        choiceB: "Class Style Sheet",
+        choiceC: "Cascading Style Sheet",
+        choiceD: "Cascading Style Settings",
+        correct: "C"
     },
     {
-        title: 'Question 2',
-        choices: [
-            'posible solution',
-            'posible solution',
-            'posible solution',
-            'posible solution'
-        ],
-        answer: 'to be determined'
+        question: 'What is the element used – and hidden – in code that explains things and makes the content more readable?',
+        choiceA: "Comments",
+        choiceB: "Comparisons",
+        choiceC: "Notes",
+        choiceD: "Quotations",
+        correct: "A"
     },
     {
-        title: 'Question 3',
-        choices: [
-            'posible solution',
-            'posible solution',
-            'posible solution',
-            'posible solution'
-        ],
-        answer: 'to be determined'
+        question: 'In JavaScript, what is a block of code called that is used to perform a specific task?',
+        choiceA: "Variable",
+        choiceB: "Function",
+        choiceC: "Declaration",
+        choiceD: "String",
+        correct: "C"
     },
     {
-        title: 'Question 4',
-        choices: [
-            'posible solution',
-            'posible solution',
-            'posible solution',
-            'posible solution'
-        ],
-        answer: 'to be determined'
+        question: 'What is considered to be the most popular programming language in the world?',
+        choiceA: "Ruby",
+        choiceB: "HTML",
+        choiceC: "Swift",
+        choiceD: "Javascript",
+        correct: "D"
     },
+    {
+        question: 'Where is the JavaScript placed inside an HTML document or page?',
+        choiceA: "In the <title> section.",
+        choiceB: "In the <footer> section.",
+        choiceC: "In the <meta> section.",
+        choiceD: "In the <body> and <head> sections.",
+        correct: "D"
+    },
+    
 ]
 
