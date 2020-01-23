@@ -9,54 +9,19 @@ What do we need:
 
 */
 
-var questions = [
-    {
-        title: 'What does CSS stand for?',
-        choices: [
-            'Class Style Settings',
-            'Class Style Sheet',
-            'Cascading Style Sheet',
-            'Cascading Style Settings'
-        ],
-        answer: 'Cascading Style Sheet'
-    },
-    {
-        title: 'Question 2',
-        choices: [
-            'posible solution',
-            'posible solution',
-            'posible solution',
-            'posible solution'
-        ],
-        answer: 'to be determined'
-    },
-    {
-        title: 'Question 3',
-        choices: [
-            'posible solution',
-            'posible solution',
-            'posible solution',
-            'posible solution'
-        ],
-        answer: 'to be determined'
-    },
-    {
-        title: 'Question 4',
-        choices: [
-            'posible solution',
-            'posible solution',
-            'posible solution',
-            'posible solution'
-        ],
-        answer: 'to be determined'
-    },
-]
-
-// start page
 var startPage = document.getElementById('start-page');
 var startButton = document.getElementById('start-button');
+var highscoresPage = document.getElementById('highscores-page');
+var viewHighscoresButton = document.getElementById('highscores-page');
+
+var currentQuestion = 0;
+var user = '';
+
+//start quiz
 
 startButton.addEventListener('click', function () {
+    var startPage = document.getElementById('start-page');
+
     // hide start page
     startPage.style.display = 'none';
 
@@ -64,18 +29,19 @@ startButton.addEventListener('click', function () {
     showQuestions();
 })
 
-// handle question page
+// question page
 var questionPage = document.getElementById('question-page');
 var questionTitle = document.getElementById('question-title');
-var questionsContainer = document.getElementById('questions-container');
+var questionsContainer = document.getElementById('choices');
 
 function showQuestions() {
+    var question = questions[currentQuestion];
     questionPage.style.display = 'block';
 
-    questionTitle.innerText = questions[0].title;
-
-    var choices = ['Class Style Settings', 'Class Style Sheet', 'posible solution', 'posible solution'];
-
+    questionTitle.innerText = question.title; // sets title 
+    
+    var choices = question.choices;
+    questionsContainer.innerHTML = '';
     choices.forEach(generateListItem);
 }
 
@@ -86,3 +52,8 @@ function generateListItem(item, index) {
 
     questionsContainer.appendChild(li);
 }
+
+// showQuestions() {
+//     question++
+//     generateListItem()
+// }

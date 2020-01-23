@@ -13,14 +13,14 @@ What do we need:
 
 var questions = [
     {
-        title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        title: 'What does CSS stand for?',
         choices: [
-            'posible solution',
-            'posible solution',
-            'posible solution',
-            'posible solution'
+            'Class Style Settings',
+            'Class Style Sheet',
+            'Cascading Style Sheet',
+            'Cascading Style Settings'
         ],
-        answer: 'to be determined'
+        answer: 'Cascading Style Sheet'
     },
     {
         title: 'Question 2',
@@ -54,38 +54,3 @@ var questions = [
     },
 ]
 
-// handle start page
-var startPage = document.getElementById('start-page');
-var startButton = document.getElementById('start-button');
-
-startButton.addEventListener('click', function () {
-    // hide start page
-    startPage.style.display = 'none';
-
-    // show questions
-    handleQuestion();
-})
-
-
-// handle question page
-var questionPage = document.getElementById('question-page');
-var questionTitle = document.getElementById('question-title');
-var questionsContainer = document.getElementById('questions-container');
-
-function handleQuestion() {
-    questionPage.style.display = 'block';
-
-    questionTitle.innerText = questions[0].title;
-
-    var choices = ['posible solution', 'posible solution', 'posible solution', 'posible solution'];
-
-    choices.forEach(generateListItem);
-}
-
-function generateListItem(item, index) {
-    var li = document.createElement('li');
-    // index = index+1;
-    li.innerText = (index + 1) + '. ' + item;
-
-    questionsContainer.appendChild(li);
-}

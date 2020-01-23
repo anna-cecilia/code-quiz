@@ -27,3 +27,6 @@ h1 {
     background-color: palevioletred;
 }
 
+ul {
+    list-style-type: none;
+}
