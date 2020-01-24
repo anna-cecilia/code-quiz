@@ -29,7 +29,8 @@
 
         <!-- start section start here -->
         <div id="start-page" class="center">
-            <h1>Welcome to the code quiz.</h1>
+            <h1>Welcome to the code quiz</h1>
+            <br>
             <p>
                 There are 5 questions in this quiz. You will have 75 seconds total to answer the questions. 
             </p>
@@ -38,6 +39,7 @@
                 Try to answer as many questions as you can and view your
                 highscore at the end.
             </p>
+            <br>
             <button id="start-button" class="pointer btn">
                 Start Quiz
             </button>
@@ -49,7 +51,7 @@
 
 
         <div id="question-page" class="center" style="display: none;">
-            <div id="question"> <p>Question</p></div>
+            <div class="question" id="question"> <p>Question</p></div>
             <div id="choices">
                 <div class="choice" id="A" onclick="checkAnswer('A')"> A </div>
                 <div class="choice" id="B" onclick="checkAnswer('B')"> B </div>
@@ -57,7 +59,17 @@
                 <div class="choice" id="D" onclick="checkAnswer('D')"> D </div>
             </div>
 
-        <div id="score container"><p>50%</p></div>
+        <!-- timer section starts here -->
+
+            <div id="timer">
+                <div id="counter"></div>
+                <div id="btimeGauge"></div>
+                <div id="timeGauge"></div>
+            </div>
+
+        <!-- timer section ends here -->
+
+            <div id="scoreContainer" style="display: none"></div>
 
             <!-- <h1 id="question-title"></h1>
             <ul id="choices"></ul> -->

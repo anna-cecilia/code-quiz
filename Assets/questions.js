@@ -23,7 +23,7 @@ var questions = [
         correct: "C"
     },
     {
-        question: 'What is the element used – and hidden – in code that explains things and makes the content more readable?',
+        question: 'What is the element used, and hidden, in code that explains things and makes the content more readable?',
         choiceA: "Comments",
         choiceB: "Comparisons",
         choiceC: "Notes",
