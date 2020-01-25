@@ -36,7 +36,7 @@ var questions = [
         choiceB: "Function",
         choiceC: "Declaration",
         choiceD: "String",
-        correct: "C"
+        correct: "B"
     },
     {
         question: 'What is considered to be the most popular programming language in the world?',

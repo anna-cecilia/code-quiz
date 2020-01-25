@@ -9,7 +9,7 @@ What do we need:
 
 */
 
-// elements
+// variables
 
 var startButton = document.getElementById('start-button');
 var questionPage = document.getElementById('questionPage')
@@ -19,25 +19,12 @@ var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
 
-var counter = document.getElementById("counter");
-var timer = document.getElementById("timer");
-var progress = document.getElementById("progress");
-var scoreContainer = document.getElementById("scoreContainer")
-
 
 var highscoresPage = document.getElementById('highscores-page');
 var viewHighscoresButton = document.getElementById('highscores-page');
 
-// create some variables
-
 var lastQuestion = questions.length-1;
 let runningQuestion = 0;
-let count = 0;
-var questionTime = 15; // 15s
-var guageWidth = 150; // 150px
-var guageUnit = guageWidth / questionTime;
-let TIMER;
-let score = 0;
 
 
 //start quiz
@@ -52,9 +39,6 @@ startButton.addEventListener("click", function startQuiz()
     startQuestions();
 
     document.getElementById("question-page").style.display = "block";
-
-    // renderCounter();
-    // TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 });
 
 function startQuestions(){
@@ -72,13 +56,6 @@ function startQuestions(){
 //Check Answer
 
 function checkAnswer(answer){
-    if (answer == questions[runningQuestion].correct){
-        score++
-    }
-    else {
-        answerIsWrong();
-    }
-    count = 0;
     if(runningQuestion < lastQuestion) {
         runningQuestion++;
         startQuestions();
@@ -86,51 +63,51 @@ function checkAnswer(answer){
     else {
 
         if (runningQuestion == lastQuestion) {
-          scoreRender(event.target.innerText);
-    
-          questionPage.style.display = 'none'; // hide questions
-          highscoresPage.style.display = 'block'; // show
+          scoreShow(event.target.innerText);
         }
     }
 }
 
 // answer is right
 
-function answerIsRight () {
+// function answerIsRight () {
+// alert.innerText = "Correct!"
 
-
-}
+// }
 
 // answer is wrong 
 
 function answerIsWrong () {
-
+document.createElement("Wrong :(")
 }
 
 // score
 
-function scoreRender(){
+function scoreShow(){
     document.getElementById("endPage").style.display = "block";
     document.getElementById("question-page").style.display="none";
+    showUserName();
     
     // calculate the amount of question percent answered by the user
-    const scorePerCent = Math.round(100 * score/questions.length);
+    // const scorePerCent = Math.round(100 * score/questions.length);
     
     
-    scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
+    // scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
 }
 
-function handleUserName() {
-    var userNamePage = document.getElementById('name');
+function showUserName() {
+    var userNamePage = document.getElementById('name-page');
     userNamePage.style.display = 'flex';
   
     userNamePage.addEventListener('keypress', function(event) {
       if (event.key == 'Enter') {
         if (event.target.value) {
-          currentUser = event.target.value; // save current user
+            window.localStorage.setItem('user', JSON.stringify(username));
+        //   User = event.target.value; // save current user
           userNamePage.style.display = 'none'; // hide page
   
           console.log(currentUser);
+          window.localStorage.setItem('user', JSON.stringify(person));
         }
       }
     })

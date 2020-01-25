@@ -52,3 +52,9 @@ ul {
 .end {
     text-align: center;
 }
+
+.name {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}

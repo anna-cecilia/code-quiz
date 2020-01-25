@@ -20,9 +20,9 @@
     <div class="app-container">
         <!-- header section starts here -->
         <div class="header">
-            <p id="view-highscores" class="pointer">View Highscores</p>
+            <p id="score" class="pointer">Score: 0</p>
 
-            <p class="timer">Timer: <span>0</span></p>
+            <p class="timer">Timer: <span>75</span></p>
         </div>
         <!-- header section ends here -->
 
@@ -74,14 +74,6 @@
 
         <!-- questions section ends here -->
 
-        <!-- name section ends here -->
-
-        <div id="name-page" class="center" style="display: none;">
-            <h1>What's your name?</h1>
-            <input id="user-name" type="text">
-        </div>
-
-        <!-- name section ends here -->
 
         <!-- <div id="quiz"-->
         <div id="endPage" class="end" style="display: none">
@@ -91,6 +83,9 @@
             <p>
                 You made it to the end. 
             </p>
+            <br>
+            <p id="final-score">Your final score is: </p>
+            <br>
             <button id="end-button" class="pointer btn">
                 View Highscores
             </button>
@@ -102,6 +97,21 @@
         <h1>Highscores</h1>
       </div>
       <!-- view highscores section ends here -->
+
+      <br>
+      <br>
+
+      <!-- name section ends here -->
+
+      <div id="name-page" class="name" style="display: none;">
+        <form>
+            What's your name?
+            <input id="username" type="text">
+        </form>
+        
+    </div>
+
+    <!-- name section ends here -->
 
 
     </div>
