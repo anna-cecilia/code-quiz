@@ -48,10 +48,10 @@ var questions = [
     },
     {
         question: 'Where is the JavaScript placed inside an HTML document or page?',
-        choiceA: "In the title section.",
-        choiceB: "In the footer section.",
-        choiceC: "In the meta section.",
-        choiceD: "In the body and head sections.",
+        choiceA: "In the title section",
+        choiceB: "In the footer section",
+        choiceC: "In the meta section",
+        choiceD: "In the body and head sections",
         correct: "D"
     },
     

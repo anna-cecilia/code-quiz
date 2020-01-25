@@ -4,6 +4,7 @@
 
 .center {
     text-align: center;
+    margin-top: 50px;
 }
 
 .pointer {
@@ -24,7 +25,8 @@ h1 {
 
 .btn {
     color:white;
-    background-color: palevioletred;
+    background-color: lightskyblue;
+    border-radius: 0px;
 }
 
 ul {
@@ -34,10 +36,15 @@ ul {
 .choice {
     cursor: pointer;
     margin: 15px;
+    display: inline;
+    padding: 15px;
+    background-color: lightsteelblue;
+    text-transform: lowercase;
 }
 
 .question {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 20px;
+    margin-bottom: 50px;
 }

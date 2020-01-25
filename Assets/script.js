@@ -9,11 +9,9 @@ What do we need:
 
 */
 
-// select all elements
+// elements
 
-var startPage = document.getElementById('start-page');
 var startButton = document.getElementById('start-button');
-
 var questionPage = document.getElementById('questionPage')
 var question = document.getElementById("question");
 var choiceA = document.getElementById("A");
@@ -54,7 +52,7 @@ startButton.addEventListener("click", function startQuiz()
     startQuestions();
 
     document.getElementById("question-page").style.display = "block";
-    
+
     renderCounter();
     TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 });
@@ -68,16 +66,6 @@ function startQuestions(){
     choiceC.innerHTML = q.choiceC;
     choiceD.innerHTML = q.choiceD;
 }
-
-// startButton.addEventListener('click', function () {
-//     var startPage = document.getElementById('start-page');
-
-//     // hide start page
-//     startPage.style.display = 'none';
-
-//     // show questions
-//     startQuestions();
-// })
 
 
 // counter
@@ -96,6 +84,7 @@ function showCounter () {
             startQuestions();
         } 
         else{
+            document.getElementById("endPage").style.display = "block";
             clearInterval(TIMER);
             scoreRender()
         }
@@ -126,6 +115,7 @@ function checkAnswer(answer){
 
 function answerIsRight () {
 
+
 }
 
 // answer is wrong 
@@ -134,41 +124,31 @@ function answerIsWrong () {
 
 }
 
+// score
 
-scores
-
-// function score () {
-//     scoreDiv.style.display =" block";
-
-//     var scoreNumber = Math.round(100 * score/questions.length);
-
-//     scoreDiv.innerHTML += "<p>" + scoreNumber + "%<p>";
-// }
-
-
-
-
-
-// function showQuestions() {
-//     var question = questions[currentQuestion];
-//     questionPage.style.display = 'block';
-
-//     questionTitle.innerText = question.title; // sets title 
+function scoreRender(){
+    scoreDiv.style.display = "block";
     
-//     var choices = question.choices;
-//     questionsContainer.innerHTML = '';
-//     choices.forEach(generateListItem);
-// }
+    // calculate the amount of question percent answered by the user
+    const scorePerCent = Math.round(100 * score/questions.length);
+    
+    
+    scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
+}
 
-// function generateListItem(item, index) {
-//     var li = document.createElement('li');
-//     // index = index+1;
-//     li.innerText = (index + 1) + '. ' + item;
+function handleUserName() {
+    var userNamePage = document.getElementById('name');
+    userNamePage.style.display = 'flex';
+  
+    userNamePage.addEventListener('keypress', function(event) {
+      if (event.key == 'Enter') {
+        if (event.target.value) {
+          currentUser = event.target.value; // save current user
+          userNamePage.style.display = 'none'; // hide page
+  
+          console.log(currentUser);
+        }
+      }
+    })
+  }
 
-//     questionsContainer.appendChild(li);
-// }
-
-// showQuestions() {
-//     question++
-//     generateListItem()
-// }
