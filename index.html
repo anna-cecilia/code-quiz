@@ -21,8 +21,8 @@
         <!-- header section starts here -->
         <div class="header">
             <p id="score" class="pointer">Score: 0</p>
-
-            <p class="timer">Timer: <span>75</span></p>
+            
+            <p  class="timer">Total Time: <span id="timer">20</span> seconds</p>
         </div>
         <!-- header section ends here -->
 
@@ -32,10 +32,10 @@
             <h1>Welcome to the code quiz</h1>
             <br>
             <p>
-                There are 5 questions in this quiz. You will have 75 seconds total to answer the questions. 
+                There are 5 questions in this quiz. You will have 20 seconds total to answer the questions. The timer will start automatically when you press start.
             </p>
             <p>
-                For each correct answer, you will receive one point. 
+                For each correct answer, you will receive one point.
                 Try to answer as many questions as you can and view your
                 highscore at the end.
             </p>
@@ -47,11 +47,14 @@
         <!-- start section ends here -->
 
 
+
         <!-- questions section start here -->
 
 
         <div id="question-page" class="center" style="display: none;">
-            <div class="question" id="question"> <p>Question</p></div>
+            <div class="question" id="question">
+                <p>Question</p>
+            </div>
             <div id="choices">
                 <div class="choice" id="A" onclick="checkAnswer('A')"> A </div>
                 <div class="choice" id="B" onclick="checkAnswer('B')"> B </div>
@@ -59,29 +62,30 @@
                 <div class="choice" id="D" onclick="checkAnswer('D')"> D </div>
             </div>
 
-
-        <!-- timer section starts here -->
-
-            <div id="timer">
-                <div id="counter"></div>
-                <div id="btimeGauge"></div>
-                <div id="timeGauge"></div>
-            </div>
-
-        <!-- timer section ends here -->
-
         </div>
+
+        <!-- check answer ends here -->
+
+        <div id="right" class="correct" style="display: none;">
+            <p>Correct :)</p>
+        </div>
+
+        <div id="wrong" class="incorrect" style="display: none;">
+            <p>Wrong :(</p>
+        </div>
+
+        <!-- check answer ends here -->
 
         <!-- questions section ends here -->
 
 
         <!-- <div id="quiz"-->
         <div id="endPage" class="end" style="display: none">
-        
+
             <h1>Congratulations!</h1>
             <br>
             <p>
-                You made it to the end. 
+                You made it to the end.
             </p>
             <br>
             <p id="final-score">Your final score is: </p>
@@ -94,21 +98,22 @@
 
         <!-- view highscores section starts here -->
         <div id="highscores-page" class="center" style="display: none;">
-        <h1>Highscores</h1>
-      </div>
-      <!-- view highscores section ends here -->
+            <h1>Highscores</h1>
+        </div>
+        <!-- view highscores section ends here -->
 
-      <br>
-      <br>
+        <br>
+        <br>
 
-      <!-- name section ends here -->
+        <!-- name section ends here -->
 
-      <div id="name-page" class="name" style="display: none;">
-        <form>
-            What's your name?
-            <input id="username" type="text">
-        </form>
-        
+        <div id="name-page" class="name" style="display: none;">
+            <form>
+                What's your name?
+                <input id="username" type="text">
+            </form>
+        </div>
+
     </div>
 
     <!-- name section ends here -->

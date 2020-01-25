@@ -19,94 +19,110 @@ var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
 
-
 var highscoresPage = document.getElementById('highscores-page');
-var viewHighscoresButton = document.getElementById('highscores-page');
+var viewHighscoresButton = document.getElementById('end-button');
+var score = 0;
 
-var lastQuestion = questions.length-1;
+var lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 
 
 //start quiz
 
-startButton.addEventListener("click", function startQuiz()
-{
-    var startPage = document.getElementById('start-page');
-    //hide start page
-    startPage.style.display = "none";
+startButton.addEventListener("click", function startQuiz() {
+  var startPage = document.getElementById('start-page');
+  //hide start page
+  startPage.style.display = "none";
 
-    //show questions
-    startQuestions();
+  //show questions
+  startQuestions();
+  startTimer();
 
-    document.getElementById("question-page").style.display = "block";
+  document.getElementById("question-page").style.display = "block";
 });
 
-function startQuestions(){
-    let q = questions[runningQuestion];
-    
-    question.innerHTML = "<p>"+ q.question +"</p>";
-    choiceA.innerHTML = q.choiceA;
-    choiceB.innerHTML = q.choiceB;
-    choiceC.innerHTML = q.choiceC;
-    choiceD.innerHTML = q.choiceD;
-}
 
+function startQuestions() {
+  let q = questions[runningQuestion];
+
+  question.innerHTML = "<p>" + q.question + "</p>";
+  choiceA.innerHTML = q.choiceA;
+  choiceB.innerHTML = q.choiceB;
+  choiceC.innerHTML = q.choiceC;
+  choiceD.innerHTML = q.choiceD;
+
+}
 
 
 //Check Answer
 
-function checkAnswer(answer){
-    if(runningQuestion < lastQuestion) {
-        runningQuestion++;
-        startQuestions();
-    }
-    else {
+function checkAnswer(answer) {
 
-        if (runningQuestion == lastQuestion) {
-          scoreShow(event.target.innerText);
-        }
-    }
+  if (runningQuestion == lastQuestion) {
+    scoreShow(event.target.innerText);
+  }
+
+  else {
+    response(answer);
+
+    runningQuestion++;
+    startQuestions();
+  }
 }
 
-// answer is right
+// check answer
 
-// function answerIsRight () {
-// alert.innerText = "Correct!"
+function response(answer) {
+  if (answer == questions[runningQuestion].correct) {
+    score += 10;
+    document.getElementById("right").style.display = "block";
+  }
+  else {
+    document.getElementById("wrong").style.display = "block"
+  }
+};
 
-// }
-
-// answer is wrong 
-
-function answerIsWrong () {
-document.createElement("Wrong :(")
-}
 
 // score
 
-function scoreShow(){
-    document.getElementById("endPage").style.display = "block";
-    document.getElementById("question-page").style.display="none";
-    showUserName();
-    
-    // calculate the amount of question percent answered by the user
-    // const scorePerCent = Math.round(100 * score/questions.length);
-    
-    
-    // scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
+function scoreShow() {
+  document.getElementById("right").style.display = "none";
+  document.getElementById("wrong").style.display = "none";
+  document.getElementById("endPage").style.display = "block";
+  document.getElementById("question-page").style.display = "none";
+
+  showUserName();
+  clearInterval(totalTime);
+
 }
 
 function showUserName() {
-    var userNamePage = document.getElementById('name-page');
-    userNamePage.style.display = 'flex';
-  
-    userNamePage.addEventListener('keypress', function(event) {
-      if (event.key == 'Enter') {
-        if (event.target.value) {
-            window.localStorage.setItem('user', JSON.stringify(username));
-        
-          userNamePage.style.display = 'none'; // hide page
-        }
+  var userNamePage = document.getElementById('name-page');
+  userNamePage.style.display = 'flex';
+
+  userNamePage.addEventListener('keypress', function (event) {
+    if (event.key == 'Enter') {
+      if (event.target.value) {
+        window.localStorage.setItem('user', JSON.stringify(username));
+
+        userNamePage.style.display = 'none'; // hide page
       }
-    })
+    }
+  })
+}
+
+//timer
+// start timer 
+var quizStart;
+	function startTimer(){  
+    quizStart = setTimeout(alertFunc, 20000);
   }
+  
+	function alertFunc(){    
+    alert("Time's up!");
+    scoreShow();
+	}
+	startTimer();
+
+
 
