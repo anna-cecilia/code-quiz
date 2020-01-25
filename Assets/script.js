@@ -1,14 +1,3 @@
-/*
-What do we need:
-1. generate template using html + css
-2. get information from question.js file + display it on html
-3. validate user response and display if answer was right / wrong
-4. keep track of correct responses
-5. set timer when quiz begins and if the timer is done before the user answers all questions, user loses
-6. save score on client side storage and display it to the userat the end of each game and in view high scores page.
-
-*/
-
 // variables
 
 var startButton = document.getElementById('start-button');
@@ -74,20 +63,30 @@ function checkAnswer(answer) {
 
 function response(answer) {
   if (answer == questions[runningQuestion].correct) {
+    showAlert('Right', 400);
     score += 10;
-    document.getElementById("right").style.display = "block";
   }
   else {
-    document.getElementById("wrong").style.display = "block"
+    showAlert('Wrong', 400);
   }
 };
+
+function showAlert(text, time, bcolor) {
+  $('#alert').show();
+  $('#alert').text(text);
+
+  // timer done show background in red
+  $('#alert').css('background-color', bcolor);
+
+  setTimeout(function () {
+    $('#alert').hide();
+  }, time);
+}
 
 
 // score
 
 function scoreShow() {
-  document.getElementById("right").style.display = "none";
-  document.getElementById("wrong").style.display = "none";
   document.getElementById("endPage").style.display = "block";
   document.getElementById("question-page").style.display = "none";
 
@@ -111,18 +110,30 @@ function showUserName() {
   })
 }
 
-//timer
-// start timer 
+// timer
 var quizStart;
-	function startTimer(){  
-    quizStart = setTimeout(alertFunc, 20000);
-  }
-  
-	function alertFunc(){    
-    alert("Time's up!");
-    scoreShow();
-	}
-	startTimer();
+function startTimer() {
+  quizStart = setTimeout(alertFunc, 20000);
+}
 
+function alertFunc() {
+  alert("Time's up!");
+  scoreShow();
+}
+
+  // function quizStart() {
+  //   var sec = 20;
+  //   var interval = setInterval(function functionName() {
+  //     sec--
+  //     $('#timer').html(sec);
+
+  //     if (sec == 0) {
+  //       clearInterval(interval);
+  //       showAlert('Time is over!', 1200);
+
+  //       scoreShow();
+  //     }
+  //   }, 1000)
+  // }
 
 
