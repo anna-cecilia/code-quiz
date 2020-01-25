@@ -103,11 +103,8 @@ function showUserName() {
       if (event.key == 'Enter') {
         if (event.target.value) {
             window.localStorage.setItem('user', JSON.stringify(username));
-        //   User = event.target.value; // save current user
+        
           userNamePage.style.display = 'none'; // hide page
-  
-          console.log(currentUser);
-          window.localStorage.setItem('user', JSON.stringify(person));
         }
       }
     })
