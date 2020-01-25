@@ -10,6 +10,7 @@ var choiceD = document.getElementById("D");
 
 var highscoresPage = document.getElementById('highscores-page');
 var viewHighscoresButton = document.getElementById('end-button');
+var user = '';
 var score = 0;
 
 var lastQuestion = questions.length - 1;
@@ -91,24 +92,16 @@ function scoreShow() {
   document.getElementById("question-page").style.display = "none";
 
   showUserName();
-  clearInterval(totalTime);
 
 }
 
 function showUserName() {
   var userNamePage = document.getElementById('name-page');
   userNamePage.style.display = 'flex';
-
-  userNamePage.addEventListener('keypress', function (event) {
-    if (event.key == 'Enter') {
-      if (event.target.value) {
-        window.localStorage.setItem('user', JSON.stringify(username));
-
-        userNamePage.style.display = 'none'; // hide page
-      }
-    }
-  })
 }
+
+
+//end of score
 
 // timer
 var quizStart;
@@ -120,20 +113,5 @@ function alertFunc() {
   alert("Time's up!");
   scoreShow();
 }
-
-  // function quizStart() {
-  //   var sec = 20;
-  //   var interval = setInterval(function functionName() {
-  //     sec--
-  //     $('#timer').html(sec);
-
-  //     if (sec == 0) {
-  //       clearInterval(interval);
-  //       showAlert('Time is over!', 1200);
-
-  //       scoreShow();
-  //     }
-  //   }, 1000)
-  // }
 
 

@@ -23,29 +23,36 @@
     <div class="app-container">
         <!-- header section starts here -->
         <div class="header">
-            <p id="score" class="pointer">Score: 0</p>
-            
-            <p  class="timer">Total Time: <span id="timer">20</span> seconds</p>
+            <div class=row>
+                <p id="score" class="pointer col-12">Score: 0</p>
+
+                <p class="timer col-12">Total Time: <span id="timer">20</span> seconds</p>
+            </div>
         </div>
         <!-- header section ends here -->
 
 
         <!-- start section start here -->
         <div id="start-page" class="center">
-            <h1>Welcome to the code quiz</h1>
-            <br>
-            <p>
-                There are 5 questions in this quiz. You will have 20 seconds total to answer the questions. The timer will start automatically when you press start.
-            </p>
-            <p>
-                For each correct answer, you will receive one point.
-                Try to answer as many questions as you can and view your
-                highscore at the end.
-            </p>
-            <br>
-            <button id="start-button" class="pointer btn">
-                Start Quiz
-            </button>
+            <div class="row">
+                <h1 class="col-12">Welcome to the code quiz</h1>
+                <br>
+                <p class="col-12">
+                    There are 5 questions in this quiz. You will have 20 seconds total to answer the questions. The
+                    timer
+                    will start automatically when you press start.
+                </p>
+                <p class="col-12">
+                    For each correct answer, you will receive one point.
+                    Try to answer as many questions as you can and view your
+                    highscore at the end.
+                </p>
+                <br>
+                <button id="start-button" class="pointer col-12 btn btn btn-light">
+                    Start Quiz
+                </button>
+
+            </div>
         </div>
         <!-- start section ends here -->
 
@@ -58,24 +65,18 @@
             <div class="question" id="question">
                 <p>Question</p>
             </div>
-            <div id="choices">
-                <div class="choice" id="A" onclick="checkAnswer('A')"> A </div>
-                <div class="choice" id="B" onclick="checkAnswer('B')"> B </div>
-                <div class="choice" id="C" onclick="checkAnswer('C')"> C </div>
-                <div class="choice" id="D" onclick="checkAnswer('D')"> D </div>
+            <div id="choices col" class="">
+                <div class=row>
+                    <div class="choice col-sm-12" id="A" onclick="checkAnswer('A')"> A </div>
+                    <div class="choice col-sm-12" id="B" onclick="checkAnswer('B')"> B </div>
+                    <div class="choice col-sm-12" id="C" onclick="checkAnswer('C')"> C </div>
+                    <div class="choice col-sm-12" id="D" onclick="checkAnswer('D')"> D </div>
+                </div>
             </div>
 
         </div>
 
-        <!-- check answer ends here -->
-
-        <!-- <div id="right" class="correct" style="display: none;">
-            <p>Correct :)</p>
-        </div>
-
-        <div id="wrong" class="incorrect" style="display: none;">
-            <p>Wrong :(</p>
-        </div> -->
+        <!-- check answer starts here -->
 
         <h1 id="alert" class="center"></h1>
 
@@ -86,38 +87,39 @@
 
         <!-- <div id="quiz"-->
         <div id="endPage" class="end" style="display: none">
+            <div class="row">
+                <h1 class="col-12"> Congratulations!</h1>
+                <br>
+                <p class="col-12">
+                    You made it to the end.
+                </p>
+                <br>
+                <p id="final-score" class="col-12">Your final score is: </p>
+                <br>
+                <div id="highscores" class="center col-12"></div>
+                <h3 class="col-12">Highscores</h3>
 
-            <h1>Congratulations!</h1>
-            <br>
-            <p>
-                You made it to the end.
-            </p>
-            <br>
-            <p id="final-score">Your final score is: </p>
-            <br>
-            <button id="end-button" class="pointer btn">
-                View Highscores
-            </button>
+                <ul id="scores"></ul>
+
+            </div>
 
         </div>
 
-        <!-- view highscores section starts here -->
-        <div id="highscores-page" class="center" style="display: none;">
-            <h1>Highscores</h1>
-        </div>
-        <!-- view highscores section ends here -->
+    </div>
 
-        <br>
-        <br>
+    <br>
+    <br>
 
-        <!-- name section ends here -->
-
-        <div id="name-page" class="name" style="display: none;">
+    <!-- name section starts here -->
+    <div class="row">
+        <div id="name-page" class="name col-6" style="display: none;">
             <form>
                 What's your name?
-                <input id="username" type="text">
+                <input id="username" type="text" class="col-4">
             </form>
         </div>
+    </div>
+
 
     </div>
 

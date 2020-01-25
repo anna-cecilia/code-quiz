@@ -20,13 +20,14 @@
 h1 {
     text-transform: uppercase;
     font-size: 45px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .btn {
     color:white;
     background-color: lightskyblue;
     border-radius: 0px;
+    margin-top: 45px;
 }
 
 ul {
@@ -40,6 +41,11 @@ ul {
     padding: 15px;
     background-color: lightsteelblue;
     text-transform: lowercase;
+    letter-spacing: .1em;
+}
+
+.choice:hover {
+    text-transform: uppercase;
 }
 
 .question {
@@ -57,19 +63,4 @@ ul {
     text-align: center;
     align-items: center;
     align-content: center;
-}
-
-.correct {
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 50px;
-    background-color: cornflowerblue;
-}
-
-.incorrect 
-{
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 50px;
-    background-color: darkcyan;
 }
