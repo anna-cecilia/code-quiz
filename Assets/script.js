@@ -53,8 +53,8 @@ startButton.addEventListener("click", function startQuiz()
 
     document.getElementById("question-page").style.display = "block";
 
-    renderCounter();
-    TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
+    // renderCounter();
+    // TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 });
 
 function startQuestions(){
@@ -68,28 +68,6 @@ function startQuestions(){
 }
 
 
-// counter
-
-function showCounter () {
-    if (count <= questionTime){
-        counter.innerHTML =count;
-        timer.style.width = count * guageUnit + "px";
-        count++
-    }
-    else {
-        count = 0;
-        answerIsWrong()
-        if (runningQuestion < lastQuestion){
-            runningQuestion++
-            startQuestions();
-        } 
-        else{
-            document.getElementById("endPage").style.display = "block";
-            clearInterval(TIMER);
-            scoreRender()
-        }
-    }
-}
 
 //Check Answer
 
@@ -106,8 +84,13 @@ function checkAnswer(answer){
         startQuestions();
     }
     else {
-        clearInterval(TIMER);
-        scoreRender();
+
+        if (runningQuestion == lastQuestion) {
+          scoreRender(event.target.innerText);
+    
+          questionPage.style.display = 'none'; // hide questions
+          highscoresPage.style.display = 'block'; // show
+        }
     }
 }
 
@@ -127,7 +110,8 @@ function answerIsWrong () {
 // score
 
 function scoreRender(){
-    scoreDiv.style.display = "block";
+    document.getElementById("endPage").style.display = "block";
+    document.getElementById("question-page").style.display="none";
     
     // calculate the amount of question percent answered by the user
     const scorePerCent = Math.round(100 * score/questions.length);
