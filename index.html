@@ -21,16 +21,6 @@
 
 <body>
     <div class="app-container">
-        <!-- header section starts here -->
-        <div class="header">
-            <div class=row>
-                <p id="score" class="pointer col-12">Score: 0</p>
-
-                <p class="timer col-12">Total Time: <span id="timer">20</span> seconds</p>
-            </div>
-        </div>
-        <!-- header section ends here -->
-
 
         <!-- start section start here -->
         <div id="start-page" class="center">
@@ -84,8 +74,6 @@
 
         <!-- questions section ends here -->
 
-
-        <!-- <div id="quiz"-->
         <div id="endPage" class="end" style="display: none">
             <div class="row">
                 <h1 class="col-12"> Congratulations!</h1>
@@ -94,12 +82,27 @@
                     You made it to the end.
                 </p>
                 <br>
-                <p id="final-score" class="col-12">Your final score is: </p>
+                <p id="score" class="col-12">Your final score is: </p>
                 <br>
-                <div id="highscores" class="center col-12"></div>
-                <h3 class="col-12">Highscores</h3>
+                <div id="highscores" class="center col-12">
+                    <div class="row">
+                        <div id="name-page" class="name col-6" style="display: none;">
+                            <form>
+                                What's your name?
+                                <input id="item" type="text" placeholder="New" class="col-4">
+                            </form>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <h3 class="col-12">Highscores</h3>
 
-                <ul id="scores"></ul>
+                    <ul id="scores"></ul>
+                    <br>
+
+                    <button class="col-12">Clear All</button>
+                </div>
+
 
             </div>
 
@@ -109,24 +112,6 @@
 
     <br>
     <br>
-
-    <!-- name section starts here -->
-    <div class="row">
-        <div id="name-page" class="name col-6" style="display: none;">
-            <form>
-                What's your name?
-                <input id="username" type="text" class="col-4">
-            </form>
-        </div>
-    </div>
-
-
-    </div>
-
-    <!-- name section ends here -->
-
-
-    </div>
 
     <script type="text/javascript" src="Assets/questions.js"></script>
     <script type="text/javascript" src="./Assets/script.js"></script>

@@ -17,7 +17,7 @@ var lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 
 
-//start quiz
+//start quiz + questions
 
 startButton.addEventListener("click", function startQuiz() {
   var startPage = document.getElementById('start-page');
@@ -43,8 +43,9 @@ function startQuestions() {
 
 }
 
+// end of questions
 
-//Check Answer
+// Check Answer
 
 function checkAnswer(answer) {
 
@@ -60,8 +61,6 @@ function checkAnswer(answer) {
   }
 }
 
-// check answer
-
 function response(answer) {
   if (answer == questions[runningQuestion].correct) {
     showAlert('Right', 400);
@@ -76,20 +75,18 @@ function showAlert(text, time, bcolor) {
   $('#alert').show();
   $('#alert').text(text);
 
-  // timer done show background in red
-  $('#alert').css('background-color', bcolor);
-
   setTimeout(function () {
     $('#alert').hide();
   }, time);
 }
 
+// end of check answer
 
 // score
-
 function scoreShow() {
   document.getElementById("endPage").style.display = "block";
   document.getElementById("question-page").style.display = "none";
+
 
   showUserName();
 
@@ -100,6 +97,19 @@ function showUserName() {
   userNamePage.style.display = 'flex';
 }
 
+function FinalScore() {
+
+  var secondsRemaining = timerDisplay.textContent;
+
+  if (secondsRemaining > 10) {
+    score += 50;
+  } else if (secondsRemaining > 5) {
+    score += 20;
+  }
+
+  score.innerText = score;
+  return score;
+};
 
 //end of score
 
@@ -113,5 +123,42 @@ function alertFunc() {
   alert("Time's up!");
   scoreShow();
 }
+// end of timer
 
+// store highscores
+const form = document.querySelector('form')
+const ul = document.querySelector('ul')
+const button = document.querySelector('button')
+const input = document.getElementById('item')
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
 
+localStorage.setItem('items', JSON.stringify(itemsArray))
+const data = JSON.parse(localStorage.getItem('items'))
+
+const liMaker = text => {
+  const li = document.createElement('li')
+  li.textContent = text
+  ul.appendChild(li)
+}
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault()
+
+  itemsArray.push(input.value)
+  localStorage.setItem('items', JSON.stringify(itemsArray))
+  liMaker(input.value)
+  input.value = ''
+})
+
+data.forEach(item => {
+  liMaker(item)
+})
+
+button.addEventListener('click', function () {
+  localStorage.clear()
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild)
+  }
+})
+
+// store highscores ends
