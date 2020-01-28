@@ -16,6 +16,8 @@ var score = 0;
 var lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 
+var done = false;
+
 
 //start quiz + questions
 
@@ -26,7 +28,7 @@ startButton.addEventListener("click", function startQuiz() {
 
   //show questions
   startQuestions();
-  startTimer();
+  handleTimer();
 
   document.getElementById("question-page").style.display = "block";
 });
@@ -51,6 +53,7 @@ function checkAnswer(answer) {
 
   if (runningQuestion == lastQuestion) {
     scoreShow(event.target.innerText);
+    done = true;
   }
 
   else {
@@ -64,7 +67,7 @@ function checkAnswer(answer) {
 function response(answer) {
   if (answer == questions[runningQuestion].correct) {
     showAlert('Right', 400);
-    score += 10;
+    score ++;
   }
   else {
     showAlert('Wrong', 400);
@@ -87,42 +90,64 @@ function scoreShow() {
   document.getElementById("endPage").style.display = "block";
   document.getElementById("question-page").style.display = "none";
 
+  $('#score').text('You got '+score+' out of 5.');
 
-  showUserName();
-
-}
-
-function showUserName() {
   var userNamePage = document.getElementById('name-page');
   userNamePage.style.display = 'flex';
+
+  // showUserName();
 }
 
-function FinalScore() {
+// function showUserName() {
+//   var userNamePage = document.getElementById('name-page');
+//   userNamePage.style.display = 'flex';
+// }
 
-  var secondsRemaining = timerDisplay.textContent;
+// function FinalScore() {
 
-  if (secondsRemaining > 10) {
-    score += 50;
-  } else if (secondsRemaining > 5) {
-    score += 20;
-  }
+//   var secondsRemaining = timerDisplay.textContent;
 
-  score.innerText = score;
-  return score;
-};
+//   if (secondsRemaining > 10) {
+//     score += 50;
+//   } else if (secondsRemaining > 5) {
+//     score += 20;
+//   }
+
+//   score.innerText = score;
+//   return score;
+// };
 
 //end of score
 
+
 // timer
-var quizStart;
-function startTimer() {
-  quizStart = setTimeout(alertFunc, 20000);
+function handleTimer() {
+  var time = 10;
+
+  var interval = setInterval(function() {
+    time--
+    $('#timer').html(time);
+
+    if (time == 0) {
+      clearInterval(interval);
+      scoreShow()
+    }
+  
+    if (done) {
+      clearInterval(interval);
+    }
+  }, 1000);
 }
 
-function alertFunc() {
-  alert("Time's up!");
-  scoreShow();
-}
+// var quizStart;
+// function startTimer() {
+//   quizStart = setTimeout(alertFunc, 10000);
+// }
+
+// function alertFunc() {
+//   alert("Time's up!");
+//   scoreShow();
+// }
 // end of timer
 
 // store highscores
@@ -156,9 +181,9 @@ data.forEach(item => {
 
 button.addEventListener('click', function () {
   localStorage.clear()
-  while (ul.firstChild) {
-    ul.removeChild(ul.firstChild)
-  }
+  // while (ul.firstChild) {
+  //   ul.removeChild(ul.firstChild)
+  // }
 })
 
 // store highscores ends

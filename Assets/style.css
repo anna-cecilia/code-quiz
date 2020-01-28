@@ -23,10 +23,19 @@ h1 {
     margin-bottom: 30px;
 }
 
+.row {
+    padding: 150px;
+    padding-top: 0px;
+}
+
+.timer{
+    text-align: center;
+    font-size: 30px;
+}
 
 .btn {
     color:white;
-    background-color: lightskyblue;
+    background-color: green;
     border-radius: 0px;
     margin-top: 45px;
 }
@@ -40,7 +49,7 @@ ul {
     margin: 15px;
     display: inline;
     padding: 15px;
-    background-color: lightsteelblue;
+    background-color: greenyellow;
     text-transform: lowercase;
     letter-spacing: .1em;
 }
@@ -61,7 +70,31 @@ ul {
 }
 
 .name {
+ padding: 0px;
+ align-items: center;
+ display: block !important;
+}
+
+body {
     text-align: center;
-    align-items: center;
-    align-content: center;
+}
+form {
+    display: inline-block;
+}
+
+.rowEnd {
+    text-align: center;
+    
+}
+
+.center2 {
+    margin-top: 0px;
+    text-align: center;
+}
+
+
+.jumbotron {
+    margin: 50px;
+    border: green;
+    border-width: 5px;
 }
