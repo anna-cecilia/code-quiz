@@ -23,6 +23,16 @@ h1 {
     margin-bottom: 30px;
 }
 
+.display-4 
+{
+    font-size: 45px;
+    letter-spacing: .1em;
+}
+
+p {
+    font-size: 20px;
+}
+
 .row {
     padding: 150px;
     padding-top: 0px;
@@ -36,6 +46,7 @@ h1 {
 .btn {
     color:white;
     background-color: green;
+    padding: 15px;
     border-radius: 0px;
     margin-top: 45px;
 }
@@ -47,15 +58,18 @@ ul {
 .choice {
     cursor: pointer;
     margin: 15px;
-    display: inline;
     padding: 15px;
-    background-color: greenyellow;
+    color: white;
+    background-color: green;
     text-transform: lowercase;
     letter-spacing: .1em;
+    text-align: center;
 }
 
 .choice:hover {
     text-transform: uppercase;
+    background-color: yellowgreen;
+    color: black;
 }
 
 .question {

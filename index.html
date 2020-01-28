@@ -25,13 +25,13 @@
         <div id="timer" class="timer">10</div>
 
         <div id="start-page" class="jumbotron center">
-            <h1 class="display-4">Welcome to the code quiz.</h1>
+            <h1 class="display-4">Welcome to the code quiz</h1>
             <p class="lead">TThere are 5 questions in this quiz. You will have 20 seconds total to answer the questions.
                 The timer will start automatically when you press start.</p>
             <hr class="my-4">
             <p>For each correct answer, you will receive one point.
                 Try to answer as many questions as you can and view your highscore at the end.</p>
-            <button id="start-button" class="pointer col-12 btn btn btn-light">
+            <button id="start-button" class="pointer btn btn btn-light">
                 Start Quiz
             </button>
         </div>
@@ -46,13 +46,11 @@
 
             <p class="question" id="question">Question</p>
 
-            <div id="choices col" class="">
-                <div class=row>
-                    <div class="choice col-sm-12" id="A" onclick="checkAnswer('A')"> A </div>
-                    <div class="choice col-sm-12" id="B" onclick="checkAnswer('B')"> B </div>
-                    <div class="choice col-sm-12" id="C" onclick="checkAnswer('C')"> C </div>
-                    <div class="choice choiced col-sm-12" id="D" onclick="checkAnswer('D')"> D </div>
-                </div>
+            <div id="choices" class="">
+                    <div class="choice" id="A" onclick="checkAnswer('A')"> A </div>
+                    <div class="choice" id="B" onclick="checkAnswer('B')"> B </div>
+                    <div class="choice" id="C" onclick="checkAnswer('C')"> C </div>
+                    <div class="choice" id="D" onclick="checkAnswer('D')"> D </div>
             </div>
             <!-- check answer starts here -->
             <h1 id="alert" class="center2"></h1>
@@ -66,20 +64,8 @@
             <p class="lead">you made it to the end of the quiz.</p>
             <hr class="my-4">
             <p class="col-12">Your final score is: <span id="score"></span></p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-          </div>
 
-        <div id="endPage" class="end" style="display: none">
-            <div class="rowEnd">
-                <h1 class="col-12"> Congratulations!</h1>
-                <br>
-                <p class="col-12">
-                    You made it to the end.
-                </p>
-                <br>
-                <p class="col-12">Your final score is: <span id="score"></span></p>
-                <br>
-                <div id="highscores" class="center col-12">
+            <div id="highscores" class="center col-12">
                     <div class="row-2">
                         <div id="name-page" class="name col-12" style="display: none;">
                             <form>
@@ -95,11 +81,7 @@
                     <ul id="scores"></ul>
                     <br>
                 </div>
-            </div>
-        </div>
-
-
-
+          </div>
 
     </div>
 

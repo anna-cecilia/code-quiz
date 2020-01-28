@@ -52,8 +52,10 @@ function startQuestions() {
 function checkAnswer(answer) {
 
   if (runningQuestion == lastQuestion) {
-    scoreShow(event.target.innerText);
+    
+    response(answer);
     done = true;
+    scoreShow(event.target.innerText);
   }
 
   else {
@@ -67,10 +69,15 @@ function checkAnswer(answer) {
 function response(answer) {
   if (answer == questions[runningQuestion].correct) {
     showAlert('Right', 400);
-    score ++;
+    score++;
+    
+
+  console.log(score);
   }
   else {
     showAlert('Wrong', 400);
+    
+
   }
 };
 
@@ -81,6 +88,7 @@ function showAlert(text, time, bcolor) {
   setTimeout(function () {
     $('#alert').hide();
   }, time);
+
 }
 
 // end of check answer
@@ -122,7 +130,7 @@ function scoreShow() {
 
 // timer
 function handleTimer() {
-  var time = 10;
+  var time = 20;
 
   var interval = setInterval(function() {
     time--
